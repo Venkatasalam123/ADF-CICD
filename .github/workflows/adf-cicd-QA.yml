@@ -2,7 +2,7 @@ name: export-arm-template
 on:
   push:
     branches:
-      - qa
+      - venkat-1
 
 permissions:
   id-token: write
