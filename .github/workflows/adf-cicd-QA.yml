@@ -57,6 +57,9 @@ jobs:
         # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
         creds: ${{vars.AZURE_CREDENTIALS}}
 
+    - name: Run Connect-AzAccount
+      run: Connect-AzAccount
+
     - name: data-factory-deploy
       uses: Azure/data-factory-deploy-action@v1.2.0
       with:
