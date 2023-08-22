@@ -27,7 +27,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: adf-build-QA
-        path: adf/armTemplate # ${{ steps.export.outputs.arm-template-directory }} #${{github.workspace}}/exported_templates  # Change the path as needed
+        path: ${{ steps.export.outputs.arm-template-directory }}  # ${{ steps.export.outputs.arm-template-directory }} #${{github.workspace}}/exported_templates  # Change the path as needed
         if-no-files-found: error
 
 # Download build artifact and deploy
@@ -56,7 +56,6 @@ jobs:
       with:
         # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
         creds: ${{secrets.AZURE_CREDENTIALS}}
-        enable-AzPSSession: true
 
     - name: data-factory-deploy
       uses: Azure/data-factory-deploy-action@v1.2.0
