@@ -52,10 +52,11 @@ jobs:
         path: adf-build-QA
 
     - name: Azure Login
-      uses: Azure/actions/login@v1
+      uses: Azure/login@v1
       with:
         # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
         creds: ${{vars.AZURE_CREDENTIALS}}
+        enable-AzPSSession: true
 
     - name: data-factory-deploy
       uses: Azure/data-factory-deploy-action@v1.2.0
